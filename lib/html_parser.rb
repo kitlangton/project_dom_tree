@@ -57,18 +57,14 @@ class HTMLParser
     tag =~ /<\//
   end
 
-  def display_node
-
-  end
-
   def opening_tag?(tag)
     !closing_tag?(tag)
   end
 end
 
-html = File.read(__dir__ + "/../test.html")
-html_string = "<div>  div text before  <p>    p text  </p>  <div>    more div text  </div>  div text after</div>"
-html = html.gsub("\n", " ")
-parser = HTMLParser.new
-parser.parse(html)
-parser.output
+# html = File.read(__dir__ + "/../test.html")
+# html_string = "<div>  div text before  <p>    p text  </p>  <div>    more div text  </div>  div text after</div>"
+# html = html.gsub("\n", " ")
+# parser = HTMLParser.new
+# parser.parse(html)
+# parser.output

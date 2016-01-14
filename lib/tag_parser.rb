@@ -7,7 +7,7 @@ module TagParser
 
     tag = Tag.new(type)
 
-    tag_string.scan /\s(\w+)\s*=\s*'(.+?)'/ do |key, value|
+    tag_string.scan /\s(\w+)\s*=\s*['|"](.+?)['|"]/ do |key, value|
       case key
       when 'class'
         tag.classes = value.split(" ")
@@ -19,6 +19,7 @@ module TagParser
     tag
   end
 end
+
 
 class Tag
   attr_accessor :type, :classes, :id, :name, :src, :title, :children, :parent, :text, :depth
@@ -37,7 +38,10 @@ class Tag
   end
 
   def display_close
-    color("</#{type}>")
+    if type == 'text'
+    else
+      color("</#{type}>")
+    end
   end
 
   def color(text)
