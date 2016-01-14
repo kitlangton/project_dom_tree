@@ -4,19 +4,19 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
-HTMLParser	/Users/kitlangton/Viking/Unit5/project_dom_tree/lib/html_parser.rb	/^class HTMLParser$/;"	c
+DOMReader	/Users/kitlangton/Viking/Unit5/project_dom_tree/lib/html_parser.rb	/^class DOMReader$/;"	c
 Outputter	/Users/kitlangton/Viking/Unit5/project_dom_tree/lib/outputter.rb	/^class Outputter$/;"	c
 Tag	/Users/kitlangton/Viking/Unit5/project_dom_tree/lib/tag_parser.rb	/^class Tag$/;"	c
 TagParser	/Users/kitlangton/Viking/Unit5/project_dom_tree/lib/tag_parser.rb	/^module TagParser$/;"	m
-closing_tag?	/Users/kitlangton/Viking/Unit5/project_dom_tree/lib/html_parser.rb	/^  def closing_tag?(tag)$/;"	f	class:HTMLParser
+build_tree	/Users/kitlangton/Viking/Unit5/project_dom_tree/lib/html_parser.rb	/^  def build_tree(html)$/;"	f	class:DOMReader
+closing_tag?	/Users/kitlangton/Viking/Unit5/project_dom_tree/lib/html_parser.rb	/^  def closing_tag?(tag)$/;"	f	class:DOMReader
 color	/Users/kitlangton/Viking/Unit5/project_dom_tree/lib/tag_parser.rb	/^  def color(text)$/;"	f	class:Tag
 display_close	/Users/kitlangton/Viking/Unit5/project_dom_tree/lib/tag_parser.rb	/^  def display_close$/;"	f	class:Tag
 display_open	/Users/kitlangton/Viking/Unit5/project_dom_tree/lib/tag_parser.rb	/^  def display_open$/;"	f	class:Tag
-initialize	/Users/kitlangton/Viking/Unit5/project_dom_tree/lib/html_parser.rb	/^  def initialize$/;"	f	class:HTMLParser
+initialize	/Users/kitlangton/Viking/Unit5/project_dom_tree/lib/html_parser.rb	/^  def initialize$/;"	f	class:DOMReader
 initialize	/Users/kitlangton/Viking/Unit5/project_dom_tree/lib/outputter.rb	/^  def initialize(tree)$/;"	f	class:Outputter
 initialize	/Users/kitlangton/Viking/Unit5/project_dom_tree/lib/tag_parser.rb	/^  def initialize(type = nil)$/;"	f	class:Tag
-opening_tag?	/Users/kitlangton/Viking/Unit5/project_dom_tree/lib/html_parser.rb	/^  def opening_tag?(tag)$/;"	f	class:HTMLParser
+opening_tag?	/Users/kitlangton/Viking/Unit5/project_dom_tree/lib/html_parser.rb	/^  def opening_tag?(tag)$/;"	f	class:DOMReader
 output	/Users/kitlangton/Viking/Unit5/project_dom_tree/lib/outputter.rb	/^  def output(node = @tree.root)$/;"	f	class:Outputter
 pad	/Users/kitlangton/Viking/Unit5/project_dom_tree/lib/tag_parser.rb	/^  def pad(string)$/;"	f	class:Tag
-parse	/Users/kitlangton/Viking/Unit5/project_dom_tree/lib/html_parser.rb	/^  def parse(html)$/;"	f	class:HTMLParser
 parse_tag	/Users/kitlangton/Viking/Unit5/project_dom_tree/lib/tag_parser.rb	/^  def self.parse_tag(tag_string)$/;"	F	class:TagParser

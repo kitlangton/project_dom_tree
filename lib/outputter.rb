@@ -19,11 +19,11 @@ class Outputter
   end
 end
 
-html = File.read(__dir__ + "/../test.html")
+html = File.read(__dir__ + "/../small.html")
 html_string = "<div>  div text before  <p>    p text  </p>  <div>    more div text  </div>  div text after</div>"
 html = html.gsub("\n", " ")
-parser = HTMLParser.new
-parser.parse(html)
+parser = DOMReader.new
+parser.build_tree(html)
 
 outputter = Outputter.new(parser)
 outputter.output
