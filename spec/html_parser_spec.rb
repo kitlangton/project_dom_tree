@@ -15,7 +15,6 @@ describe HTMLParser do
     it 'sets the first tag to the root node' do
       parser.parse(html_string)
 
-      expect(parser.root.children[1].type).to eq 'div'
     end
   end
 end

@@ -19,7 +19,7 @@ module TagParser
 end
 
 class Tag
-  attr_accessor :type, :classes, :id, :name, :src, :title, :children, :parent
+  attr_accessor :type, :classes, :id, :name, :src, :title, :children, :parent, :text, :depth
 
   def initialize(type = nil)
     @type = type

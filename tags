@@ -11,5 +11,6 @@ closing_tag?	/Users/kitlangton/Viking/Unit5/project_dom_tree/lib/html_parser.rb	
 initialize	/Users/kitlangton/Viking/Unit5/project_dom_tree/lib/html_parser.rb	/^  def initialize$/;"	f	class:HTMLParser
 initialize	/Users/kitlangton/Viking/Unit5/project_dom_tree/lib/tag_parser.rb	/^  def initialize(type = nil)$/;"	f	class:Tag
 opening_tag?	/Users/kitlangton/Viking/Unit5/project_dom_tree/lib/html_parser.rb	/^  def opening_tag?(tag)$/;"	f	class:HTMLParser
+output	/Users/kitlangton/Viking/Unit5/project_dom_tree/lib/html_parser.rb	/^  def output(node = @root)$/;"	f	class:HTMLParser
 parse	/Users/kitlangton/Viking/Unit5/project_dom_tree/lib/html_parser.rb	/^  def parse(html)$/;"	f	class:HTMLParser
 parse_tag	/Users/kitlangton/Viking/Unit5/project_dom_tree/lib/tag_parser.rb	/^  def self.parse_tag(tag_string)$/;"	F	class:TagParser

@@ -1,4 +1,4 @@
-require 'tag_parser'
+require_relative 'tag_parser'
 
 class HTMLParser
 
@@ -10,28 +10,45 @@ class HTMLParser
 
   def parse(html)
     current_node = nil
-    puts "Parsing HTML:"
     html.scan(/(<.+?>)|(?<=>)(.+?)(?=<)/) do |tag, text|
       if tag
-        puts "Current node is: #{current_node.type}" if current_node
         if opening_tag?(tag)
-          puts "Found opening tag: #{tag}"
           tag_node = TagParser.parse_tag(tag)
-          @root = tag_node unless @root
+          unless @root
+            tag_node.depth = 0
+            @root = tag_node
+          end
           if current_node
-            puts "Adding #{tag} as child of #{current_node.type}" if current_node
             current_node.children << tag_node
+            tag_node.depth = current_node.depth + 1
             tag_node.parent = current_node
           end
           current_node = tag_node
         elsif closing_tag?(tag)
           current_node = current_node.parent
-          puts "Found closing tag: #{tag}"
-          puts "Jumping up to parent"
         end
       elsif text.strip.length > 0
-        # puts "text: #{text.strip}"
+        text_node = Tag.new('text')
+        text_node.text = text.strip
+        current_node.children << text_node
+        text_node.depth = current_node.depth + 1
+        text_node.parent = current_node
       end
+    end
+  end
+
+  def output(node = @root)
+    if node.type == "text"
+      puts "  " * node.depth + node.text
+    else
+      puts "  " * node.depth + "<#{node.type}>"
+    end
+    node.children.each do |child|
+      output(child)
+    end
+    if node.type == "text"
+    else
+      puts "  " * node.depth + "</#{node.type}>"
     end
   end
 
@@ -43,3 +60,8 @@ class HTMLParser
     !closing_tag?(tag)
   end
 end
+
+html_string = "<div>  div text before  <p>    p text  </p>  <div>    more div text  </div>  div text after</div>"
+parser = HTMLParser.new
+parser.parse(html_string)
+parser.output
