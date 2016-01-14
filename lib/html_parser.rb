@@ -38,21 +38,6 @@ class HTMLParser
     end
   end
 
-  def output(node = @root)
-    if node.text
-      puts "  " * node.depth + node.display_open
-    else
-      puts "  " * node.depth + node.display_open
-    end
-    node.children.each do |child|
-      output(child)
-    end
-    if node.type == "text"
-    else
-      puts "  " * node.depth + node.display_close
-    end
-  end
-
   def closing_tag?(tag)
     tag =~ /<\//
   end

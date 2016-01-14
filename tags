@@ -16,7 +16,6 @@ initialize	/Users/kitlangton/Viking/Unit5/project_dom_tree/lib/html_parser.rb	/^
 initialize	/Users/kitlangton/Viking/Unit5/project_dom_tree/lib/outputter.rb	/^  def initialize(tree)$/;"	f	class:Outputter
 initialize	/Users/kitlangton/Viking/Unit5/project_dom_tree/lib/tag_parser.rb	/^  def initialize(type = nil)$/;"	f	class:Tag
 opening_tag?	/Users/kitlangton/Viking/Unit5/project_dom_tree/lib/html_parser.rb	/^  def opening_tag?(tag)$/;"	f	class:HTMLParser
-output	/Users/kitlangton/Viking/Unit5/project_dom_tree/lib/html_parser.rb	/^  def output(node = @root)$/;"	f	class:HTMLParser
 output	/Users/kitlangton/Viking/Unit5/project_dom_tree/lib/outputter.rb	/^  def output(node = @tree.root)$/;"	f	class:Outputter
 pad	/Users/kitlangton/Viking/Unit5/project_dom_tree/lib/tag_parser.rb	/^  def pad(string)$/;"	f	class:Tag
 parse	/Users/kitlangton/Viking/Unit5/project_dom_tree/lib/html_parser.rb	/^  def parse(html)$/;"	f	class:HTMLParser
