@@ -37,6 +37,17 @@ class Tag
     end
   end
 
+  def data_attributes
+    {
+      classes: classes,
+      id: id,
+      name: name,
+      src: src,
+      title: title,
+      text: text
+    }.reject { |key, value| value.nil? }
+  end
+
   def display_close
     puts pad(color("</#{type}>")) unless type == "text"
   end

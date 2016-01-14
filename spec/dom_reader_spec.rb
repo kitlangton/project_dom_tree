@@ -1,4 +1,4 @@
-require 'html_parser'
+require 'dom_reader'
 
 describe DOMReader do
 

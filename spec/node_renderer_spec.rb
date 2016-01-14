@@ -1,31 +1,28 @@
 require 'node_renderer'
-require 'html_parser'
+require 'dom_reader'
 
 describe NodeRenderer do
   let(:tree){DOMReader.new}
-  let(:html){"<p> some text <em> nested text </em> more text </p>"}
+  let(:html){File.read(__dir__ + "/../small.html")}
   let(:renderer) do
     tree.build_tree(html)
     NodeRenderer.new(tree)
   end
 
-  describe "#node_count" do
+  describe "#render" do
 
     it "returns the total nodes in the subtree of the node" do
-      
       expect(renderer.render(tree.root)).to match(/5 nodes/)
-
     end
-
-  end
-
-  describe "#type_count" do
 
     it "returns the total type of nodes in the subtree of the node" do
-      hash = renderer.type_count(tree.root)
-      expect(hash['em']).to eq 1
+      expect(renderer.render(tree.root)).to match(/em: 1/)
     end
 
+    it "returns the data attributes of the node" do
+      puts renderer.render(tree.root.children[0])
+      expect(renderer.render(tree.root.children[0])).to match(/id: cool-node/)
+    end
   end
 
 end
