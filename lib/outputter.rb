@@ -9,13 +9,13 @@ class Outputter
   def output(node = @tree.root)
     return unless node
 
-    puts "  " * node.depth + node.display_open
+    node.display_open
 
     node.children.each do |child|
       output(child)
     end
 
-    puts "  " * node.depth + node.display_close
+    node.display_close
   end
 end
 

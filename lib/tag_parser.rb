@@ -31,17 +31,21 @@ class Tag
 
   def display_open
     if type == 'text'
-      color(text)
+      puts pad(color(text))
     else
-      color("<#{type}>")
+      puts pad(color("<#{type}>"))
     end
   end
 
   def display_close
     if type == 'text'
     else
-      color("</#{type}>")
+      puts pad(color("</#{type}>"))
     end
+  end
+
+  def pad(string)
+    "  " * depth + string
   end
 
   def color(text)
