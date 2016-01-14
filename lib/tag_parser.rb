@@ -38,10 +38,7 @@ class Tag
   end
 
   def display_close
-    if type == 'text'
-    else
-      puts pad(color("</#{type}>"))
-    end
+    puts pad(color("</#{type}>")) unless type == "text"
   end
 
   def pad(string)
