@@ -11,6 +11,7 @@ class HTMLParser
   def parse(html)
     current_node = nil
     html.scan(/(<.+?>)|(?<=>)(.+?)(?=<)/) do |tag, text|
+      next if tag =~ /<!doctype/
       if tag
         if opening_tag?(tag)
           tag_node = TagParser.parse_tag(tag)
@@ -38,17 +39,17 @@ class HTMLParser
   end
 
   def output(node = @root)
-    if node.type == "text"
-      puts "  " * node.depth + node.text
+    if node.text
+      puts "  " * node.depth + node.display_open
     else
-      puts "  " * node.depth + "<#{node.type}>"
+      puts "  " * node.depth + node.display_open
     end
     node.children.each do |child|
       output(child)
     end
     if node.type == "text"
     else
-      puts "  " * node.depth + "</#{node.type}>"
+      puts "  " * node.depth + node.display_close
     end
   end
 
@@ -56,12 +57,18 @@ class HTMLParser
     tag =~ /<\//
   end
 
+  def display_node
+
+  end
+
   def opening_tag?(tag)
     !closing_tag?(tag)
   end
 end
 
+html = File.read(__dir__ + "/../test.html")
 html_string = "<div>  div text before  <p>    p text  </p>  <div>    more div text  </div>  div text after</div>"
+html = html.gsub("\n", " ")
 parser = HTMLParser.new
-parser.parse(html_string)
+parser.parse(html)
 parser.output

@@ -1,3 +1,5 @@
+require 'rainbow'
+
 module TagParser
   def self.parse_tag(tag_string)
     type = tag_string.match /<(\w+)/
@@ -24,5 +26,38 @@ class Tag
   def initialize(type = nil)
     @type = type
     @children = []
+  end
+
+  def display_open
+    if type == 'text'
+      color(text)
+    else
+      color("<#{type}>")
+    end
+  end
+
+  def display_close
+    color("</#{type}>")
+  end
+
+  def color(text)
+    if type == 'text'
+      return Rainbow(text).white
+    end
+
+    case depth
+    when 0
+      Rainbow(text).red
+    when 1
+      Rainbow(text).yellow
+    when 2
+      Rainbow(text).green
+    when 3
+      Rainbow(text).blue
+    when 4
+      Rainbow(text).cyan
+    else
+      Rainbow(text).cyan
+    end
   end
 end
