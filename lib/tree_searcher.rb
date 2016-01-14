@@ -6,4 +6,14 @@ class TreeSearcher
     @tree = tree
   end
 
+  def search_by(attribute, value, node = @tree.root)
+
+    node.children.map do |child|
+      if child.send(attribute) == value
+        [child, search_by(attribute, value, child)]
+      else
+        search_by(attribute, value, child)
+      end
+    end.flatten
+  end
 end
