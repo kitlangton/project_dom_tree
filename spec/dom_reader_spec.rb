@@ -32,10 +32,9 @@ describe DOMReader do
       html = "<p> text <em> nice </em> good </p>"
       parser.build_tree(html)
       p_tag = parser.root.children.first
-      em_tag = p_tag.children[1]
-      inner_text = em_tag.children.first
+      text = p_tag.children[0]
 
-      expect(inner_text.text).to eq 'nice'
+      expect(text.text).to eq 'text'
     end
 
     it 'assigns depth' do

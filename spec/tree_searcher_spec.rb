@@ -24,7 +24,6 @@ describe  TreeSearcher  do
     it 'returns all nodes that match the class provided' do
       nodes = searcher.search_by(:class, 'putty')
 
-      nodes.each { |node| puts renderer.render(node) }
       expect(nodes.size).to eq 2
     end
 

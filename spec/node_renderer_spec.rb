@@ -12,15 +12,14 @@ describe NodeRenderer do
   describe "#render" do
 
     it "returns the total nodes in the subtree of the node" do
-      expect(renderer.render(tree.root)).to match(/5 nodes/)
+      expect(renderer.render(tree.root)).to match(/13 nodes/)
     end
 
     it "returns the total type of nodes in the subtree of the node" do
-      expect(renderer.render(tree.root)).to match(/em: 1/)
+      expect(renderer.render(tree.root)).to match(/em: 3/)
     end
 
     it "returns the data attributes of the node" do
-      puts renderer.render(tree.root.children[0])
       expect(renderer.render(tree.root.children[0])).to match(/id: cool-node/)
     end
   end
