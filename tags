@@ -35,5 +35,7 @@ output	/Users/kitlangton/Viking/Unit5/project_dom_tree/lib/outputter.rb	/^  def 
 pad	/Users/kitlangton/Viking/Unit5/project_dom_tree/lib/tag_parser.rb	/^  def pad(string)$/;"	f	class:Tag
 parse_tag	/Users/kitlangton/Viking/Unit5/project_dom_tree/lib/tag_parser.rb	/^  def self.parse_tag(tag_string)$/;"	F	class:TagParser
 render	/Users/kitlangton/Viking/Unit5/project_dom_tree/lib/node_renderer.rb	/^  def render(node)$/;"	f	class:NodeRenderer
+search_ancestors	/Users/kitlangton/Viking/Unit5/project_dom_tree/lib/tree_searcher.rb	/^  def search_ancestors(node, attribute, value, array = [])$/;"	f	class:TreeSearcher.search_by
 search_by	/Users/kitlangton/Viking/Unit5/project_dom_tree/lib/tree_searcher.rb	/^  def search_by(attribute, value, node = @tree.root)$/;"	f	class:TreeSearcher
+search_children	/Users/kitlangton/Viking/Unit5/project_dom_tree/lib/tree_searcher.rb	/^  def search_children(node, attribute, value)$/;"	f	class:TreeSearcher.search_by
 type_count	/Users/kitlangton/Viking/Unit5/project_dom_tree/lib/node_renderer.rb	/^  def type_count(node)$/;"	f	class:NodeRenderer
