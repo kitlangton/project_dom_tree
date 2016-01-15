@@ -27,6 +27,8 @@ initialize	/Users/kitlangton/Viking/Unit5/project_dom_tree/lib/node_renderer.rb	
 initialize	/Users/kitlangton/Viking/Unit5/project_dom_tree/lib/outputter.rb	/^  def initialize(tree)$/;"	f	class:Outputter
 initialize	/Users/kitlangton/Viking/Unit5/project_dom_tree/lib/tag_parser.rb	/^  def initialize(type = nil)$/;"	f	class:Tag
 initialize	/Users/kitlangton/Viking/Unit5/project_dom_tree/lib/tree_searcher.rb	/^  def initialize(tree)$/;"	f	class:TreeSearcher
+inline?	/Users/kitlangton/Viking/Unit5/project_dom_tree/lib/tag_parser.rb	/^  def inline?$/;"	f	class:Tag
+inline_tag?	/Users/kitlangton/Viking/Unit5/project_dom_tree/lib/dom_reader.rb	/^  def inline_tag?(tag)$/;"	f	class:DOMReader
 matches?	/Users/kitlangton/Viking/Unit5/project_dom_tree/lib/tag_parser.rb	/^  def matches?(attribute, value)$/;"	f	class:Tag
 node_count	/Users/kitlangton/Viking/Unit5/project_dom_tree/lib/node_renderer.rb	/^  def node_count(node)$/;"	f	class:NodeRenderer
 opening_tag?	/Users/kitlangton/Viking/Unit5/project_dom_tree/lib/dom_reader.rb	/^  def opening_tag?(tag)$/;"	f	class:DOMReader

@@ -37,6 +37,10 @@ class Tag
     end
   end
 
+  def inline?
+    type == 'em' || type == 'text'
+  end
+
   def display_attributes
     output = []
     data_attributes.each do |key, value|
@@ -89,15 +93,17 @@ class Tag
     when 0
       Rainbow(text).red
     when 1
-      Rainbow(text).yellow
+      Rainbow(text).red.bright
     when 2
-      Rainbow(text).green
+      Rainbow(text).yellow
     when 3
-      Rainbow(text).blue
+      Rainbow(text).green
     when 4
       Rainbow(text).cyan
+    when 5
+      Rainbow(text).blue
     else
-      Rainbow(text).cyan
+      Rainbow(text).blue
     end
   end
 end
