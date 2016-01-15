@@ -15,4 +15,19 @@ class TreeSearcher
       end
     end.flatten.compact
   end
+
+
+  def search_children(node, attribute, value)
+    search_by(attribute, value, node)
+  end
+
+  def search_ancestors(node, attribute, value)
+    node.children.map do |child|
+      if child.matches?(attribute, value)
+        [child, search_by(attribute, value, child)]
+      else
+        search_by(attribute, value, child)
+      end
+    end.flatten.compact
+  end
 end

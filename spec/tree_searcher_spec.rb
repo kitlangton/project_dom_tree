@@ -27,6 +27,28 @@ describe  TreeSearcher  do
       nodes.each { |node| puts renderer.render(node) }
       expect(nodes.size).to eq 2
     end
+
+  end
+
+  describe '#search_children' do
+
+     it 'returns all child nodes that match the attribute provided' do
+      nodes = searcher.search_by(:class, 'putty')
+      nodes = searcher.search_children(nodes[0], :class, 'putty')
+      expect(nodes[0].type).to eq('div')
+    end
+
+  end
+
+  describe '#search_parent' do
+
+     it 'returns all child nodes that match the attribute provided' do
+      nodes = searcher.search_by(:class, 'putty')
+      nodes = searcher.search_children(nodes[0], :class, 'putty')
+      nodes = searcher.search_ancestors(nodes[0], :class, 'putty')
+      expect(nodes[0].type).to eq('p')
+    end
+
   end
 
 end
