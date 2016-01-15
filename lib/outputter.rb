@@ -19,7 +19,7 @@ class Outputter
   end
 end
 
-html = File.read(__dir__ + "/../small.html")
+html = File.read(__dir__ + "/../test.html")
 html_string = "<div>  div text before  <p>    p text  </p>  <div>    more div text  </div>  div text after</div>"
 html = html.gsub("\n", " ")
 parser = DOMReader.new

@@ -1,7 +1,17 @@
 require 'rainbow'
 
 module TagParser
-  def self.parse_tag(tag_string)
+
+  def self.parse_text_tag(text)
+    return nil if text.strip.empty?
+    tag = Tag.new('text')
+    tag.text = text.strip
+    tag
+  end
+
+  def self.parse_tag(tag_string, text = nil)
+    return parse_text_tag(text) if text
+
     type = tag_string.match /<(\w+)/
     type = type[1] if type
 
@@ -31,14 +41,10 @@ class Tag
 
   def display_open
     if type == 'text'
-      puts pad(color(text))
+      disp pad(color(text))
     else
-      puts pad(color("<#{type}#{display_attributes}>"))
+      disp pad(color("<#{type}#{display_attributes}>"))
     end
-  end
-
-  def inline?
-    type == 'em' || type == 'text'
   end
 
   def display_attributes
@@ -69,11 +75,62 @@ class Tag
   end
 
   def display_close
-    puts pad(color("</#{type}>")) unless type == "text"
+    return if type == 'text'
+    if li?
+      puts (color("</#{type}>"))
+    elsif em?
+      disp color("</#{type}>")
+    else
+      disp pad(color("</#{type}>"))
+    end
+  end
+
+  def inline?
+    type == 'text' || type == "em" || type == "li"
+  end
+
+  def em?
+    type == 'em'
+  end
+
+  def li?
+    type == 'li'
+  end
+
+  def disp_inline?
+    return false unless parent
+    !children.empty? && inline? ||  parent.inline?
+  end
+
+  def pad_inline?
+    return false unless parent
+    return false if li?
+    parent.inline? || higher_sibling_inline?
+  end
+
+  def disp(string)
+    if disp_inline?
+      print string
+    else
+      puts string
+    end
+  end
+
+  def higher_sibling_inline?
+    return false unless parent
+    my_index = parent.children.index(self)
+    return if my_index == 0
+    inline? && parent.children[my_index-1].inline?
   end
 
   def pad(string)
-    "  " * depth + string
+    if parent && parent.li? || parent && parent.em?
+      string
+    elsif pad_inline?
+      " " + string
+    else
+      "  " * depth + string
+    end
   end
 
   def matches?(attribute, value)

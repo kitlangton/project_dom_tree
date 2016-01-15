@@ -17,10 +17,14 @@ closing_tag?	/Users/kitlangton/Viking/Unit5/project_dom_tree/lib/dom_reader.rb	/
 closing_tag?	/Users/kitlangton/Viking/Unit5/project_dom_tree/lib/html_parser.rb	/^  def closing_tag?(tag)$/;"	f	class:DOMReader
 color	/Users/kitlangton/Viking/Unit5/project_dom_tree/lib/tag_parser.rb	/^  def color(text)$/;"	f	class:Tag
 data_attributes	/Users/kitlangton/Viking/Unit5/project_dom_tree/lib/tag_parser.rb	/^  def data_attributes$/;"	f	class:Tag
+disp	/Users/kitlangton/Viking/Unit5/project_dom_tree/lib/tag_parser.rb	/^  def disp(string)$/;"	f	class:Tag
+disp_inline?	/Users/kitlangton/Viking/Unit5/project_dom_tree/lib/tag_parser.rb	/^  def disp_inline?$/;"	f	class:Tag
 display_attributes	/Users/kitlangton/Viking/Unit5/project_dom_tree/lib/tag_parser.rb	/^  def display_attributes$/;"	f	class:Tag
 display_classes	/Users/kitlangton/Viking/Unit5/project_dom_tree/lib/tag_parser.rb	/^  def display_classes$/;"	f	class:Tag
 display_close	/Users/kitlangton/Viking/Unit5/project_dom_tree/lib/tag_parser.rb	/^  def display_close$/;"	f	class:Tag
 display_open	/Users/kitlangton/Viking/Unit5/project_dom_tree/lib/tag_parser.rb	/^  def display_open$/;"	f	class:Tag
+em?	/Users/kitlangton/Viking/Unit5/project_dom_tree/lib/tag_parser.rb	/^  def em?$/;"	f	class:Tag
+higher_sibling_inline?	/Users/kitlangton/Viking/Unit5/project_dom_tree/lib/tag_parser.rb	/^  def higher_sibling_inline?$/;"	f	class:Tag
 initialize	/Users/kitlangton/Viking/Unit5/project_dom_tree/lib/dom_reader.rb	/^  def initialize$/;"	f	class:DOMReader
 initialize	/Users/kitlangton/Viking/Unit5/project_dom_tree/lib/html_parser.rb	/^  def initialize$/;"	f	class:DOMReader
 initialize	/Users/kitlangton/Viking/Unit5/project_dom_tree/lib/node_renderer.rb	/^  def initialize(tree = nil)$/;"	f	class:NodeRenderer
@@ -29,13 +33,16 @@ initialize	/Users/kitlangton/Viking/Unit5/project_dom_tree/lib/tag_parser.rb	/^ 
 initialize	/Users/kitlangton/Viking/Unit5/project_dom_tree/lib/tree_searcher.rb	/^  def initialize(tree)$/;"	f	class:TreeSearcher
 inline?	/Users/kitlangton/Viking/Unit5/project_dom_tree/lib/tag_parser.rb	/^  def inline?$/;"	f	class:Tag
 inline_tag?	/Users/kitlangton/Viking/Unit5/project_dom_tree/lib/dom_reader.rb	/^  def inline_tag?(tag)$/;"	f	class:DOMReader
+li?	/Users/kitlangton/Viking/Unit5/project_dom_tree/lib/tag_parser.rb	/^  def li?$/;"	f	class:Tag
 matches?	/Users/kitlangton/Viking/Unit5/project_dom_tree/lib/tag_parser.rb	/^  def matches?(attribute, value)$/;"	f	class:Tag
 node_count	/Users/kitlangton/Viking/Unit5/project_dom_tree/lib/node_renderer.rb	/^  def node_count(node)$/;"	f	class:NodeRenderer
 opening_tag?	/Users/kitlangton/Viking/Unit5/project_dom_tree/lib/dom_reader.rb	/^  def opening_tag?(tag)$/;"	f	class:DOMReader
 opening_tag?	/Users/kitlangton/Viking/Unit5/project_dom_tree/lib/html_parser.rb	/^  def opening_tag?(tag)$/;"	f	class:DOMReader
 output	/Users/kitlangton/Viking/Unit5/project_dom_tree/lib/outputter.rb	/^  def output(node = @tree.root)$/;"	f	class:Outputter
 pad	/Users/kitlangton/Viking/Unit5/project_dom_tree/lib/tag_parser.rb	/^  def pad(string)$/;"	f	class:Tag
-parse_tag	/Users/kitlangton/Viking/Unit5/project_dom_tree/lib/tag_parser.rb	/^  def self.parse_tag(tag_string)$/;"	F	class:TagParser
+pad_inline?	/Users/kitlangton/Viking/Unit5/project_dom_tree/lib/tag_parser.rb	/^  def pad_inline?$/;"	f	class:Tag
+parse_tag	/Users/kitlangton/Viking/Unit5/project_dom_tree/lib/tag_parser.rb	/^  def self.parse_tag(tag_string, text = nil)$/;"	F	class:TagParser
+parse_text_tag	/Users/kitlangton/Viking/Unit5/project_dom_tree/lib/tag_parser.rb	/^  def self.parse_text_tag(text)$/;"	F	class:TagParser
 render	/Users/kitlangton/Viking/Unit5/project_dom_tree/lib/node_renderer.rb	/^  def render(node)$/;"	f	class:NodeRenderer
 search_ancestors	/Users/kitlangton/Viking/Unit5/project_dom_tree/lib/tree_searcher.rb	/^  def search_ancestors(node, attribute, value, array = [])$/;"	f	class:TreeSearcher.search_by
 search_by	/Users/kitlangton/Viking/Unit5/project_dom_tree/lib/tree_searcher.rb	/^  def search_by(attribute, value, node = @tree.root)$/;"	f	class:TreeSearcher

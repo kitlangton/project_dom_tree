@@ -14,28 +14,19 @@ class DOMReader
     current_node = @root
     html.scan(/(<.+?>)|(?<=>)(.+?)(?=<)/) do |tag, text|
       next if tag =~ /<!doctype/
-      if current_node.type == 'text' && !inline_tag?(tag)
+      if current_node.text && !inline_tag?(tag)
         current_node = current_node.parent
       end
-      if tag
-        if opening_tag?(tag)
-          tag_node = TagParser.parse_tag(tag)
-          current_node.children << tag_node
-          @node_count += 1
-          tag_node.depth = current_node.depth + 1
-          tag_node.parent = current_node
-          current_node = tag_node
-        elsif closing_tag?(tag)
-          current_node = current_node.parent
-        end
-      elsif text.strip.length > 0
-        text_node = Tag.new('text')
-        text_node.text = text.strip
+      if opening_tag?(tag)
+        tag_node = TagParser.parse_tag(tag, text)
+        next unless tag_node
+        current_node.children << tag_node
         @node_count += 1
-        current_node.children << text_node
-        text_node.depth = current_node.depth + 1
-        text_node.parent = current_node
-        current_node = text_node
+        tag_node.depth = current_node.depth + 1
+        tag_node.parent = current_node
+        current_node = tag_node
+      elsif closing_tag?(tag)
+        current_node = current_node.parent
       end
     end
   end
