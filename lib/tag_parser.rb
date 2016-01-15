@@ -33,8 +33,24 @@ class Tag
     if type == 'text'
       puts pad(color(text))
     else
-      puts pad(color("<#{type}>"))
+      puts pad(color("<#{type}#{display_attributes}>"))
     end
+  end
+
+  def display_attributes
+    output = []
+    data_attributes.each do |key, value|
+      if key == 'classes'
+        output << "class='#{display_classes}'"
+      else
+        output << "#{key}='#{value}'"
+      end
+    end
+    " #{output.join(" ")}" unless output.empty?
+  end
+
+  def display_classes
+    classes.join(" ")
   end
 
   def data_attributes
@@ -54,6 +70,14 @@ class Tag
 
   def pad(string)
     "  " * depth + string
+  end
+
+  def matches?(attribute, value)
+    if attribute == :class
+      classes.include?(value) if classes
+    else
+      send(attribute) == value
+    end
   end
 
   def color(text)
