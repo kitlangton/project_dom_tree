@@ -53,7 +53,7 @@ class Tag
   def display_attributes
     output = []
     data_attributes.each do |key, value|
-      if key == 'classes'
+      if key == :classes
         output << "class='#{display_classes}'"
       else
         output << "#{key}='#{value}'"
