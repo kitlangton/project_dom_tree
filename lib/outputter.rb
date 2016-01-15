@@ -26,4 +26,6 @@ parser = DOMReader.new
 parser.build_tree(html)
 
 outputter = Outputter.new(parser)
+# Rainbow.enabled = false
+# $stdout.reopen("out.txt", "w")
 outputter.output

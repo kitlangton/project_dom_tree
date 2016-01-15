@@ -1,5 +1,8 @@
 require 'rainbow'
 
+Rainbow.enabled = true
+
+
 module TagParser
 
   def self.parse_text_tag(text)
