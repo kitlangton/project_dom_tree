@@ -1,36 +1,44 @@
+require 'rainbow'
+
 class NodeRenderer
-
-  def initialize(tree = nil)
-
-    @tree = tree
-
-  end
 
   def render(node)
     output = []
 
-    output << "#{node.type.upcase} at depth #{node.depth} has #{node_count(node)} nodes."
-
-    output << "Node Data:"
-
-    node.data_attributes.each do |key, value|
-      output << "#{key}: #{value}"
-    end
-
-    output << "Subtree Stats:"
-
-    type_count(node).each do |key, value|
-      output << "#{key}: #{value}"
-    end
+    node_header(node, output)
+    node_data(node, output)
+    subtree_stats(node, output)
 
     output.join("\n")
   end
+
+  private
 
   def node_count(node)
     node.children.size +
       node.children.inject(0) do |sum, child|
         sum += node_count(child)
       end
+  end
+
+  def node_header(node, output)
+    output << "#{Rainbow(node.type.upcase).white} at depth #{Rainbow(node.depth).white} has #{Rainbow(node_count(node)).white} nodes in its subtree."
+  end
+
+  def subtree_stats(node, output)
+    output << Rainbow("\nSubtree Stats:").white.underline
+    type_count(node).each do |key, value|
+      output << "#{key}: #{Rainbow(value).cyan}"
+    end
+  end
+
+  def node_data(node, output)
+    return unless node.parent || node.data_attributes.size > 0
+    output << Rainbow("\nNode Data:").white.underline
+    output << "parent: #{Rainbow(node.parent.type).cyan}" if node.parent
+    node.data_attributes.each do |key, value|
+      output << "#{key}: #{Rainbow(value).cyan}"
+    end
   end
 
   def type_count(node)
@@ -45,5 +53,4 @@ class NodeRenderer
     end
     type_hash
   end
-
 end

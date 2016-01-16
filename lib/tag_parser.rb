@@ -89,11 +89,11 @@ class Tag
   end
 
   def inline?
-    type == 'text' || type == "em" || type == "li"
+    type == 'text' || type == "em" || type == "li" || type == 'strong' || type == 'span'
   end
 
   def em?
-    type == 'em'
+    type == 'em' || type == 'strong' || type == 'span'
   end
 
   def li?
